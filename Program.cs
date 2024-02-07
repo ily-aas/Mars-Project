@@ -1,6 +1,8 @@
 using Mars_Project_1;
 using Mars_Project_1.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,15 +19,18 @@ builder.Services.AddDbContext<MarsProjectDbContext>(options =>
 
 
 //Adding Identity DB context
-//builder.Services.AddDbContext<MarsProjectIdentityDbContext>(options =>
-//options.UseSqlServer(builder.Configuration.GetConnectionString("Mars_Database")));
+//builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme)
+//    .AddIdentityCookies();
+//builder.Services.AddAuthorizationBuilder();
 
-//builder.Services.AddAuthorization();
+//builder.Services.AddDbContext<MarsProjectIdentityDbContext>(
+//    options => options.UseSqlServer(builder.Configuration.GetConnectionString("Mars_Database")));
 
-//builder.Services.AddIdentityApiEndpoints<Users>()
-   // .AddEntityFrameworkStores<MarsProjectIdentityDbContext>();
+//builder.Services.AddIdentityCore<Users>()
+//    .AddEntityFrameworkStores<MarsProjectIdentityDbContext>()
+//    .AddApiEndpoints();
 
-var app = builder.Build(); 
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -43,3 +48,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+

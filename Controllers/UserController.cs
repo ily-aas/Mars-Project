@@ -1,4 +1,5 @@
 ﻿using Mars_Project_1.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,7 +20,8 @@ namespace Mars_Project_1.Controllers
 
 
         // GET method for retrieving a complaint by id
-        // GET endpoint: /complaint/2
+        // GET endpoint: /user/2
+        //[Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Users>> GetUser(int id)
         {
