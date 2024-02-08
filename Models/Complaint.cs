@@ -19,13 +19,6 @@ namespace Mars_Project_1.Models
         public string complaintIP { get; set; }
         public DateTime complaintDateCreated { get; set; }
 
-        //// Foreign key property
-        //public int? UserId { get; set; }
-
-        //// Navigation property
-        //[ForeignKey("UserId")]
-        //public virtual Users User { get; set; }
-
 
     }
 }
